@@ -1,33 +1,34 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
+
 import 'package:get/get.dart';
 
-import '../../Homepage/Homepage_view/home_view.dart';
-
 class LoginController extends GetxController {
-  var employeeNo = ''.obs;
-  var password = ''.obs;
-  var isLoading = false.obs;
+  final RxInt currentPage = 0.obs;
+  Timer? _timer;
 
-  void login() {
-    if (employeeNo.value.isNotEmpty && password.value.isNotEmpty) {
-      isLoading.value = true;
-      Future.delayed(const Duration(seconds: 2), () {
-        isLoading.value = false;
+  final List<String> imagePaths = [
+     'assets/images/loginpic_three.jpg',
+     'assets/images/loginpic_two.jpg',
+     'assets/images/loginpic_one.jpg',
+     'assets/images/loginpic_four.jpg'
+  ];
 
-        if (employeeNo.value == '12345' && password.value == 'password') {
-          Get.snackbar('Login Success', 'Welcome back!',
-              backgroundColor: Colors.green,
-              snackPosition: SnackPosition.BOTTOM);
-          // You can navigate to the next page after successful login:
-          Get.to(const HomeView());
-        } else {
-          Get.snackbar('Login Failed', 'Invalid credentials.',
-              backgroundColor: Colors.red, snackPosition: SnackPosition.BOTTOM);
-        }
-      });
-    } else {
-      Get.snackbar('Validation Error', 'Please enter both fields.',
-          snackPosition: SnackPosition.BOTTOM);
-    }
+  @override
+  void onInit() {
+    super.onInit();
+    startImageLoop();
+  }
+
+  void startImageLoop() {
+    
+    _timer = Timer.periodic(const Duration(seconds: 4), (timer) {
+      currentPage.value = (currentPage.value + 1) % imagePaths.length;
+    });
+  }
+
+  @override
+  void onClose() {
+    _timer?.cancel();  
+    super.onClose();
   }
 }
