@@ -9,8 +9,8 @@ class LoginController extends GetxController {
   final List<String> imagePaths = [
      'assets/images/loginpic_three.jpg',
      'assets/images/loginpic_two.jpg',
-     'assets/images/loginpic_one.jpg',
-     'assets/images/loginpic_four.jpg'
+     'assets/images/login_onee.jpg',
+     'assets/images/login_four.jpg'
   ];
 
   @override
