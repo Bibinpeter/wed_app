@@ -66,8 +66,10 @@ class OTPView extends StatelessWidget {
 
                   FadeInRight(
                     child: CustomTextFormField(
+                    
                       onChanged: (value) => controller.phoneNumber.value = value,
                       hintText: 'Enter your phone number',
+                      
                       hintstyle: GoogleFonts.poppins(
                           color: Colors.white60, fontSize: 20),
                       style: GoogleFonts.poppins(color: Colors.white),

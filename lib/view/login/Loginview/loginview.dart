@@ -70,25 +70,25 @@ class LoginView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-                FadeInUpBig(
+                FadeInDown(
                   duration: const Duration(seconds: 2),
                   child: Text(
                     "MAKE YOUR FUNCTION BETTER BEST",
                     style: GoogleFonts.poppins(
                       fontSize: 18,
-                      color: Colors.white.withOpacity(0.5),
+                      color: Colors.white,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
                 ),
                 const SizedBox(height: 8),
-                FadeInUpBig(
+                FadeInDown(
                   duration: const Duration(seconds: 2),
                   child: Text(
                     "BY  CHOOSING PROFETIONAL VENDORS .",
                     style: GoogleFonts.poppins(
                       fontSize: 13,
-                      color: Colors.white.withOpacity(0.5),
+                      color: Colors.white,
                       fontWeight: FontWeight.normal,
                     ),
                   ),

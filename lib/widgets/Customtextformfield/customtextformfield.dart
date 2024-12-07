@@ -50,9 +50,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return TextFormField(
       initialValue: widget.value,
       readOnly: widget.readOnly,
-      style: Theme.of(context).textTheme.displaySmall,
+      style:widget.style ??
+        const TextStyle(
+          color: Colors.white,  
+          fontSize: 16,
+        ),
       maxLines: widget.maxlines,
-      keyboardType: widget.type, // Assign the keyboard type
+      keyboardType: widget.type,  
       controller: widget.controller,
       decoration: InputDecoration(
         errorStyle: widget.errorStyle ?? const TextStyle(color: Colors.red),

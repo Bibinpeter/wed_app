@@ -1,15 +1,11 @@
-import 'dart:ui';
-
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
+import 'package:pretty_animated_buttons/widgets/pretty_slide_icon_button.dart';
 import 'package:wedapp/routes/routes.dart';
 import 'package:wedapp/view/login/Logincontroller/otpcontroller.dart';
-
-
 
 class VerifyotpView extends StatelessWidget {
   VerifyotpView({Key? key}) : super(key: key);
@@ -21,8 +17,8 @@ class VerifyotpView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text("OTP Verification",),
-        centerTitle: true,
+        title: const Text("OTP Verification",
+        style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -50,7 +46,7 @@ class VerifyotpView extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             FadeInLeftBig(
-               duration: const Duration(milliseconds: 500),
+               
               child: Pinput(
                 length: 6,
                 onChanged: (value) {
@@ -61,59 +57,31 @@ class VerifyotpView extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 60),
-            Positioned(
-            bottom: 110,
-            right: -16,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                FadeInRightBig(
-                  duration: const Duration(milliseconds: 500),
-                  child: GestureDetector(
-                    onTap: (){
-                  Get.toNamed(AppRoutes.otp);
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 1 , sigmaY: 1),
-                        child: Container(
-                          height: 45,
-                          padding: const EdgeInsets.symmetric(horizontal: 24),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.1),
-                            borderRadius:   BorderRadius.circular(22),
-                            border: Border.all(color: Colors.white, width: 1),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Animate(
-                                child: Text(
-                                  "Login Here",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: 20),
-                              const Icon(
-                                Icons.arrow_forward,
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                 FadeInRightBig(
+                   child: PrettySlideIconButton(
+                     labelStyle: GoogleFonts.poppins(color: Colors.white),
+                     foregroundColor: Colors.white,
+                     icon: Icons.arrow_forward,
+                     label: "VERIFY  OTP", 
+                     onPressed: () {
+                      Get.toNamed(AppRoutes.Bottomnav);
+                     },
+                   ),
+                 ),
+                 const SizedBox(height: 30,),
+                 GestureDetector(
+                  onTap: (){
+                    print("Resended otp");
+                  },
+                   child: Text("RESEND OTP",style: GoogleFonts.poppins(
+                    color: Colors.grey
+                   ),),
+                 )            
               ],
             ),
-          ),
           ],
         ),
       ),

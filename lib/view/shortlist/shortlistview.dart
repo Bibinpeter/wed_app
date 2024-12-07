@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class Shortlistview extends StatelessWidget {
+  const Shortlistview({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: Colors.pink,
       body: Center(
         child: Column(
           children: [
-            Text("Home")
+            Text("Shortlistview")
           ],
         ),
       ),
